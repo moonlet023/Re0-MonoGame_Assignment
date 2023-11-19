@@ -13,6 +13,13 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin font/Sprite.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:font/Sprite.spritefont
+
 #begin image/background/picnicmapYellow.jpg
 /importer:TextureImporter
 /processor:TextureProcessor

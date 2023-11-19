@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,6 +12,18 @@ namespace Re0_MonoGame_Assignment
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        bool isStart = false;
+        bool isEnd = false;
+        SpriteFont font;
+        KeyboardState kb = new KeyboardState();
+
+        #region Background
+        Texture2D background;
+        #endregion
+
+        #region GameStart
+        string GameMessage;
+        #endregion
 
         public Game1()
         {
@@ -27,7 +40,7 @@ namespace Re0_MonoGame_Assignment
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            graphics.IsFullScreen = true;
             base.Initialize();
         }
 
@@ -39,8 +52,12 @@ namespace Re0_MonoGame_Assignment
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            
+           
 
             // TODO: use this.Content to load your game content here
+            background = Content.Load<Texture2D>("image/background/picnicmapYellow");
+            font = Content.Load<SpriteFont>("font/Sprite");
         }
 
         /// <summary>
@@ -63,7 +80,15 @@ namespace Re0_MonoGame_Assignment
                 Exit();
 
             // TODO: Add your update logic here
-
+            if (!isStart)
+            {
+                GameMessage = "Press Enter to Start";
+                if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                {
+                    isStart = true;
+                    GameMessage = "Game Is Start";
+                }
+            }
             base.Update(gameTime);
         }
 
@@ -76,6 +101,10 @@ namespace Re0_MonoGame_Assignment
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            spriteBatch.Draw(background,new Rectangle(0,0,900,700), Color.White);
+            spriteBatch.DrawString(font, GameMessage, new Vector2(300, 200), Color.Black);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
