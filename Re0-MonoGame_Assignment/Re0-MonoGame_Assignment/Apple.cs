@@ -17,6 +17,8 @@ namespace Re0_MonoGame_Assignment
         private SpriteBatch spriteBatch;
         public float appleRotation, rotationSpeed;
         public Color[] data;
+        public int appleMiss;
+        bool isHit = false;
         
         public Apple (Game g) : base(g)
         {
@@ -30,6 +32,7 @@ namespace Re0_MonoGame_Assignment
             appleVelocity.X = 0;
             appleVelocity.Y = r.Next(1, 5);
             rotationSpeed = appleVelocity.Y / 10.0f;
+            appleMiss = 0;
             
             base.Initialize();
         }
@@ -52,11 +55,16 @@ namespace Re0_MonoGame_Assignment
         {
             applePosition.Y += appleVelocity.Y;
             appleRotation = (appleRotation + rotationSpeed) % MathHelper.TwoPi;
-            if (applePosition.Y > 255)
+            if (applePosition.Y > 255 && isHit)
             {
+                if (applePosition.Y > 255)
+                {
+                    appleMiss++;
+                }
                 applePosition.X = r.Next(GraphicsDevice.Viewport.Width);
                 applePosition.Y = 0;
                 appleVelocity.Y = r.Next(1,5);
+                isHit = false;
             }
             base.Update(gameTime);
         }

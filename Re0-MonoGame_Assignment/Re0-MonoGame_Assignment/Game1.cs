@@ -18,7 +18,7 @@ namespace Re0_MonoGame_Assignment
         KeyboardState kb = new KeyboardState();
         int stage = 1;
         int miss = 0;
-        float time = 0.0f;
+        float time = 0.0f, basicTime = 30.0f;
         plate plate;
 
         #region Background
@@ -100,8 +100,10 @@ namespace Re0_MonoGame_Assignment
             {
                 GameMessage = "Press Enter to Start";
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-                {
+                {   
                     isStart = true;
+                    time = basicTime;
+                    miss = 0;
                     apple = new Apple[3];
                     for (int i = 0; i < apple.Length; i++)
                     {
@@ -113,7 +115,9 @@ namespace Re0_MonoGame_Assignment
 
             if (isStart)
             {
-                if(Keyboard.GetState().IsKeyDown(Keys.Space))
+                time -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                //miss = apple.appleMiss; //has problem now
+                if(time <= 0)
                 {
                     stage++;
                     apple = new Apple[1];
@@ -122,6 +126,7 @@ namespace Re0_MonoGame_Assignment
                         apple[i] = new Apple(this);
                         this.Components.Add(apple[i]);
                     }
+                    time = basicTime + (basicTime * (stage - 1));
                 }
             }
             
@@ -161,6 +166,11 @@ namespace Re0_MonoGame_Assignment
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public void TimeCount()
+        {
+           
         }
     }
 }
