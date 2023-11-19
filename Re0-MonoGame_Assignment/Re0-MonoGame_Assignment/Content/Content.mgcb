@@ -32,7 +32,7 @@
 /processorParam:TextureFormat=Color
 /build:image/background/picnicmapYellow.jpg
 
-#begin image/fruit/apple1.png
+#begin image/fruit/apple2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -42,7 +42,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:image/fruit/apple1.png
+/build:image/fruit/apple2.png
 
 #begin image/fruit/bnana.png
 /importer:TextureImporter

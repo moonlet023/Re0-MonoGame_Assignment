@@ -41,9 +41,15 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Apple.cs" />
+    <Compile Include="banana.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="pineapple.cs" />
+    <Compile Include="plate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strawberry.cs" />
+    <Compile Include="watermelon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

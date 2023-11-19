@@ -1,4 +1,3 @@
-C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\apple1.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\bnana.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\pineapple.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\strawberry.xnb
@@ -28,3 +27,4 @@ C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\obj\x86\Debug\Re0-MonoGame_Assignment.exe
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\obj\x86\Debug\Re0-MonoGame_Assignment.pdb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\font\Sprite.xnb
+C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\apple2.xnb

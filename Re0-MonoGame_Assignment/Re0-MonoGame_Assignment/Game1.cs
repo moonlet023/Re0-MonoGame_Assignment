@@ -16,6 +16,10 @@ namespace Re0_MonoGame_Assignment
         bool isEnd = false;
         SpriteFont font;
         KeyboardState kb = new KeyboardState();
+        int stage = 1;
+        int miss = 0;
+        float time = 0.0f;
+        plate plate;
 
         #region Background
         Texture2D background;
@@ -25,6 +29,13 @@ namespace Re0_MonoGame_Assignment
         string GameMessage;
         #endregion
 
+        #region fruit
+        Apple[] apple;
+        banana [] banana;
+        pineapple [] pineapple;
+        Strawberry [] strawberry;
+        watermelon [] watermelon;
+        #endregion
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -41,6 +52,10 @@ namespace Re0_MonoGame_Assignment
         {
             // TODO: Add your initialization logic here
             graphics.IsFullScreen = true;
+            IsMouseVisible = false;
+
+            apple = null;
+
             base.Initialize();
         }
 
@@ -67,6 +82,7 @@ namespace Re0_MonoGame_Assignment
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            apple = null;
         }
 
         /// <summary>
@@ -78,7 +94,7 @@ namespace Re0_MonoGame_Assignment
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            
             // TODO: Add your update logic here
             if (!isStart)
             {
@@ -86,7 +102,36 @@ namespace Re0_MonoGame_Assignment
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
                     isStart = true;
-                    GameMessage = "Game Is Start";
+                    apple = new Apple[3];
+                    for (int i = 0; i < apple.Length; i++)
+                    {
+                        apple[i] = new Apple(this);
+                        this.Components.Add(apple[i]);
+                    }
+                }
+            }
+
+            if (isStart)
+            {
+                if(Keyboard.GetState().IsKeyDown(Keys.Space))
+                {
+                    stage++;
+                    apple = new Apple[1];
+                    for (int i = 0; i < apple.Length; i++)
+                    {
+                        apple[i] = new Apple(this);
+                        this.Components.Add(apple[i]);
+                    }
+                }
+            }
+            
+            if(stage == 4)
+            {
+                GameMessage = "You Win";
+                isEnd = true;
+                for(int i=0; i<apple.Length; i++)
+                {
+                    this.Components.Remove(apple[i]);
                 }
             }
             base.Update(gameTime);
@@ -103,7 +148,16 @@ namespace Re0_MonoGame_Assignment
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(background,new Rectangle(0,0,900,700), Color.White);
-            spriteBatch.DrawString(font, GameMessage, new Vector2(300, 200), Color.Black);
+            if (!isStart || isEnd)
+            {
+                spriteBatch.DrawString(font, GameMessage, new Vector2(300, 200), Color.Black);
+            }
+            else
+            {
+                spriteBatch.DrawString(font, "The Stage Now Is " +stage , new Vector2(0, 460), Color.Black);
+                spriteBatch.DrawString(font, "Time Remind: " + time, new Vector2(300, 460), Color.Black);
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);
