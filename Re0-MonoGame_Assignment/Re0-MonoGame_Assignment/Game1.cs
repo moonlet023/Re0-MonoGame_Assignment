@@ -35,6 +35,12 @@ namespace Re0_MonoGame_Assignment
         pineapple [] pineapple;
         Strawberry [] strawberry;
         watermelon [] watermelon;
+
+        int applemiss = 0;
+        int bananamiss = 0;
+        int pineapplemiss = 0;
+        int strawberrymiss = 0;
+        int watermelonmiss = 0;
         #endregion
         public Game1()
         {
@@ -109,6 +115,7 @@ namespace Re0_MonoGame_Assignment
                     {
                         apple[i] = new Apple(this);
                         this.Components.Add(apple[i]);
+                        applemiss += apple[i].appleMiss;
                     }
                 }
             }
@@ -116,10 +123,10 @@ namespace Re0_MonoGame_Assignment
             if (isStart)
             {
                 time -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                //miss = apple.appleMiss; //has problem now
                 if(time <= 0)
                 {
                     stage++;
+                    miss = 0;
                     apple = new Apple[1];
                     for (int i = 0; i < apple.Length; i++)
                     {
@@ -127,6 +134,13 @@ namespace Re0_MonoGame_Assignment
                         this.Components.Add(apple[i]);
                     }
                     time = basicTime + (basicTime * (stage - 1));
+                }
+                for(int i = 0; i < apple.Length; i++)
+                {
+                    if (this.apple[i].applePosition.Y >= 270)
+                    {
+                        miss++;
+                    }
                 }
             }
             
@@ -139,6 +153,17 @@ namespace Re0_MonoGame_Assignment
                     this.Components.Remove(apple[i]);
                 }
             }
+
+            if (miss == 3)
+            {
+                GameMessage = "You Lose";
+                isEnd = true;
+                for(int i=0; i<apple.Length; i++)
+                {
+                    this.Components.Remove(apple[i]);
+                }
+            }
+            
             base.Update(gameTime);
         }
 
@@ -159,8 +184,9 @@ namespace Re0_MonoGame_Assignment
             }
             else
             {
-                spriteBatch.DrawString(font, "The Stage Now Is " +stage , new Vector2(0, 460), Color.Black);
+                spriteBatch.DrawString(font, "Stage :" +stage , new Vector2(0, 460), Color.Black);
                 spriteBatch.DrawString(font, "Time Remind: " + time, new Vector2(300, 460), Color.Black);
+                spriteBatch.DrawString(font, "Miss: " + miss, new Vector2(700, 460), Color.Black);
             }
 
             spriteBatch.End();
