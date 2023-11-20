@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -132,6 +133,18 @@ namespace Re0_MonoGame_Assignment
             if (isStart && !isEnd)
             {
                 time -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                for (int i = 0; i <= apple.Length; i++)
+                {
+                    if (perfectCollision(apple[i].appleRect, apple[i].data, gamePlate.plateRect, gamePlate.data))
+                    {
+                        Console.WriteLine("Hit");
+                        apple[i].isHit = true;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 if(time <= 0)
                 {
                     stage++;
@@ -141,11 +154,6 @@ namespace Re0_MonoGame_Assignment
                     {
                         apple[i] = new Apple(this);
                         this.Components.Add(apple[i]);
-
-                        if (IntersectsPixel(apple[i].appleRect, apple[i].data, gamePlate.plateRect, gamePlate.data))
-                        {
-                            apple[i].isHit = true;
-                        }
                     }
                     time = basicTime + (basicTime * (stage - 1));
                 }
@@ -212,20 +220,29 @@ namespace Re0_MonoGame_Assignment
 
             return new Rectangle((int)min.X, (int)min.Y, (int)(max.X - min.X), (int)(max.Y - min.Y));
         }
-        
-        private static bool perfectColllision(Rectangle rectA, Color colorA, Rectangle rectB, Color colorB)
+
+        private static bool perfectCollision(Rectangle rectA, Color[] colorA, Rectangle rectB, Color[] colorB)
         {
-            Matrix transformA = Matrix.CreateTranslation(new Vector3(-rectA.Center.X, -rectA.Center.Y, 0)) * Matrix.CreateRotationZ(0) * Matrix.CreateTranslation(new Vector3(rectA.Center.X, rectA.Center.Y, 0));
-            Matrix transformB = Matrix.CreateTranslation(new Vector3(-rectB.Center.X, -rectB.Center.Y, 0)) * Matrix.CreateRotationZ(0) * Matrix.CreateTranslation(new Vector3(rectB.Center.X, rectB.Center.Y, 0));
+            Console.WriteLine("Function Called");
+            Matrix trasformA = Matrix.CreateTranslation(new Vector3(-rectA.Center.X, -rectA.Center.Y, 0)) *
+                Matrix.CreateRotationZ(0) *
+                Matrix.CreateTranslation(new Vector3(rectA.Center.X, rectA.Center.Y, 0));
+            Matrix teasformB = Matrix.CreateTranslation(new Vector3(-rectB.Center.X, -rectB.Center.Y, 0)) *
+                Matrix.CreateRotationZ(0) *
+                Matrix.CreateTranslation(new Vector3(rectB.Center.X, rectB.Center.Y, 0));
             
-            int top = Math.Max(CalculateBoundingRectangle(rectA, transformA).Top, CalculateBoundingRectangle(rectB,transformB).Top);
-            int bottom = Math.Min(CalculateBoundingRectangle(rectA, transformA).Bottom, CalculateBoundingRectangle(rectB,transformB).Bottom);
-            int left = Math.Max(CalculateBoundingRectangle(rectA, transformA).Left, CalculateBoundingRectangle(rectB,transformB).Left);
-            int right = Math.Min(CalculateBoundingRectangle(rectA, transformA).Right, CalculateBoundingRectangle(rectB,transformB).Right);
+            Rectangle boundingRectA = CalculateBoundingRectangle(rectA ,trasformA);
+            Rectangle boundingRectB = CalculateBoundingRectangle(rectB , teasformB);
+
+            int top = Math.Max(boundingRectA.Top, boundingRectB.Top);
+            int bottom = Math.Min(boundingRectA.Bottom, boundingRectB.Bottom);
+            int left = Math.Max(boundingRectA.Left, boundingRectB.Left);
+            int right = Math.Min(boundingRectA.Right, boundingRectB.Right);
+
             for (int y = top; y < bottom; y++)
             {
                 for (int x = left; x < right; x++)
-                { 
+                {
                     Color dataA = colorA[(x - rectA.Left) + (y - rectA.Top) * rectA.Width];
                     Color dataB = colorB[(x - rectB.Left) + (y - rectB.Top) * rectB.Width];
                     if (dataA.A != 0 && dataB.A != 0)
