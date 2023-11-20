@@ -124,13 +124,13 @@ namespace Re0_MonoGame_Assignment
                         this.Components.Add(apple[i]);
                         applemiss += apple[i].appleMiss;
                     }
+                    gamePlate = new plate(this);
+                    this.Components.Add(gamePlate);
                 }
             }
 
             if (isStart && !isEnd)
             {
-                gamePlate = new plate(this);
-                this.Components.Add(gamePlate);
                 time -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if(time <= 0)
                 {
@@ -141,6 +141,10 @@ namespace Re0_MonoGame_Assignment
                     {
                         apple[i] = new Apple(this);
                         this.Components.Add(apple[i]);
+                        
+                        Matrix appleTransform = Matrix.CreateTranslation(new Vector3(-apple[i].center, 0.0f)) *
+                                               Matrix.CreateRotationZ(apple[i].rotationAngle) *
+                                               Matrix.CreateTranslation(new Vector3(apple[i].position, 0.0f));
                     }
                     time = basicTime + (basicTime * (stage - 1));
                 }
@@ -189,6 +193,32 @@ namespace Re0_MonoGame_Assignment
             base.Update(gameTime);
         }
 
+        private static bool PixelCollision(Matrix transformA, Rectangle rectA, int widthA, int heightA, ref Color[] dataA, Matrix transformB, int widthB, int heightB,ref Color[] dataB)
+        {
+            Matrix AToB = transformA * Matrix.Invert(transformB);
+
+            Vector2 stepX = Vector2.TransformNormal(Vector2.UnitX, AToB);
+            Vector2 stepY = Vector2.TransformNormal(Vector2.UnitY, AToB);
+            Vector2 yPosInB = Vector2.Transform(Vector2.Zero, AToB);
+            for (int yA = rectA.Top; yA < rectA.Bottom; yA++)
+            {   // For each row in A
+                Vector2 posInB = yPosInB; // At the beginning of the row
+                for (int xA = rectA.Left; xA < rectA.Right; xA++)
+                { // For each pixel in the row
+                    int xB = (int)Math.Round(posInB.X); int yB = (int)Math.Round(posInB.Y);
+                    if (0 <= xB && xB < widthB && 0 <= yB && yB < heightB)
+                    {
+                        Color colorA = dataA[xA + yA * widthA]; Color colorB = dataB[xB + yB * widthB];
+                        if (colorA.A != 0 && colorB.A != 0)
+                            return true;
+                    }
+                    posInB += stepX; // Move to next pixel in the row
+                }
+                yPosInB += stepY; // Move to the next row
+            }
+            return false; // No intersection found
+        }
+        
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>

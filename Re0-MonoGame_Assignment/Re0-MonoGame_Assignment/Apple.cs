@@ -18,7 +18,8 @@ namespace Re0_MonoGame_Assignment
         public float appleRotation, rotationSpeed;
         public Color[] data;
         public int appleMiss = 0;
-        bool isHit = false;
+        public bool isHit = false;
+        public Rectangle appleRect;
         
         public Apple (Game g) : base(g)
         {
@@ -60,14 +61,13 @@ namespace Re0_MonoGame_Assignment
                 {
                     appleMiss++;
                 }
-                else
-                {
-                    isHit = false;
-                }
                 applePosition.X = r.Next(GraphicsDevice.Viewport.Width);
                 applePosition.Y = 0;
                 appleVelocity.Y = r.Next(1,5);
+                isHit = false;
             }
+            
+            appleRect = new Rectangle((int)applePosition.X, (int)applePosition.Y, appleTexture.Width, appleTexture.Height);
             base.Update(gameTime);
         }
         

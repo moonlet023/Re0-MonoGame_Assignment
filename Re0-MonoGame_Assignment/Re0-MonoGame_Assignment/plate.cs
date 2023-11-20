@@ -17,6 +17,8 @@ namespace Re0_MonoGame_Assignment
         private SpriteBatch spriteBatch;
         public Color[] data;
         bool isHit = false;
+        MouseState ms;
+        public Rectangle plateRect;
         
         public plate(Game g) : base(g)
         {
@@ -25,9 +27,8 @@ namespace Re0_MonoGame_Assignment
 
         public override void Initialize()
         {
-            platePosition = new Vector2(300, 400);
+            platePosition.Y = GraphicsDevice.Viewport.Height - 100;
             plateVelocity = new Vector2(0, 0);
-            
             base.Initialize();
         }
 
@@ -46,6 +47,11 @@ namespace Re0_MonoGame_Assignment
         
         public override void Update(GameTime gameTime)
         {
+            ms = new MouseState();
+            ms = Mouse.GetState();
+            
+            platePosition.X = ms.X - plateCenter.X;
+            plateRect = new Rectangle((int)platePosition.X, (int)platePosition.Y, plateTexture.Width, plateTexture.Height);
             base.Update(gameTime);
         }
         
