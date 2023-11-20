@@ -118,7 +118,7 @@ namespace Re0_MonoGame_Assignment
                     isStart = true;
                     time = basicTime;
                     miss = 0;
-                    apple = new Apple[3];
+                    apple = new Apple[1];
                     for (int i = 0; i < apple.Length; i++)
                     {
                         apple[i] = new Apple(this);
@@ -133,7 +133,7 @@ namespace Re0_MonoGame_Assignment
             if (isStart && !isEnd)
             {
                 time -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                for (int i = 0; i <= apple.Length; i++)
+                for (int i = 0; i < apple.Length; i++)
                 {
                     if (perfectCollision(apple[i].appleRect, apple[i].data, gamePlate.plateRect, gamePlate.data))
                     {
@@ -223,7 +223,6 @@ namespace Re0_MonoGame_Assignment
 
         private static bool perfectCollision(Rectangle rectA, Color[] colorA, Rectangle rectB, Color[] colorB)
         {
-            Console.WriteLine("Function Called");
             Matrix trasformA = Matrix.CreateTranslation(new Vector3(-rectA.Center.X, -rectA.Center.Y, 0)) *
                 Matrix.CreateRotationZ(0) *
                 Matrix.CreateTranslation(new Vector3(rectA.Center.X, rectA.Center.Y, 0));
