@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/image/fruit/apple2.png</SourceFile>
-  <SourceTime>2023-11-19T21:15:56.6492844+08:00</SourceTime>
-  <DestFile>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/bin/Windows/image/fruit/apple2.xnb</DestFile>
-  <DestTime>2023-11-20T16:04:30.8673769+08:00</DestTime>
+  <SourceFile>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/image/plate/plate1.png</SourceFile>
+  <SourceTime>2023-11-20T16:03:37.6068617+08:00</SourceTime>
+  <DestFile>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/bin/Windows/Content/image/plate/plate1.xnb</DestFile>
+  <DestTime>2023-11-20T16:04:40.5014632+08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-24T05:55:52+08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

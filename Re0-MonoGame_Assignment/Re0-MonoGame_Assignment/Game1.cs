@@ -20,6 +20,8 @@ namespace Re0_MonoGame_Assignment
         int miss = 0;
         float time = 0.0f, basicTime = 30.0f;
         plate plate;
+        Texture2D cross;
+        float leaveTime = 5.0f;
 
         #region Background
         Texture2D background;
@@ -41,6 +43,10 @@ namespace Re0_MonoGame_Assignment
         int pineapplemiss = 0;
         int strawberrymiss = 0;
         int watermelonmiss = 0;
+        #endregion
+
+        #region plate
+        plate gamePlate;
         #endregion
         public Game1()
         {
@@ -79,6 +85,7 @@ namespace Re0_MonoGame_Assignment
             // TODO: use this.Content to load your game content here
             background = Content.Load<Texture2D>("image/background/picnicmapYellow");
             font = Content.Load<SpriteFont>("font/Sprite");
+            cross = Content.Load<Texture2D>("image/gameEffecrt/cross");
         }
 
         /// <summary>
@@ -120,8 +127,10 @@ namespace Re0_MonoGame_Assignment
                 }
             }
 
-            if (isStart)
+            if (isStart && !isEnd)
             {
+                gamePlate = new plate(this);
+                this.Components.Add(gamePlate);
                 time -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if(time <= 0)
                 {
@@ -152,15 +161,28 @@ namespace Re0_MonoGame_Assignment
                 {
                     this.Components.Remove(apple[i]);
                 }
+                this.Components.Remove(gamePlate);
             }
 
-            if (miss == 3)
+            if (miss >= 3)
             {
                 GameMessage = "You Lose";
                 isEnd = true;
                 for(int i=0; i<apple.Length; i++)
                 {
                     this.Components.Remove(apple[i]);
+                }
+                this.Components.Remove(gamePlate);
+            }
+            
+            //not working need to fix later
+            if(isEnd)
+            {
+                time = leaveTime;
+                time -= (int)gameTime.ElapsedGameTime.TotalSeconds;
+                if(time <= 0) 
+                {
+                    Exit();
                 }
             }
             
@@ -178,25 +200,33 @@ namespace Re0_MonoGame_Assignment
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(background,new Rectangle(0,0,900,700), Color.White);
+            
             if (!isStart || isEnd)
             {
                 spriteBatch.DrawString(font, GameMessage, new Vector2(300, 200), Color.Black);
+                if (isEnd)
+                {                
+                    spriteBatch.DrawString(font, "Game Will Leave in " + time +" second", new Vector2(300, 250), Color.Black);
+                    //spriteBatch.DrawString(font, "Game Will Leave in " + leaveTime +"second", new Vector2(300, 250), Color.Black);
+                }
             }
             else
             {
-                spriteBatch.DrawString(font, "Stage :" +stage , new Vector2(0, 460), Color.Black);
+                spriteBatch.DrawString(font, "Stage :" + stage , new Vector2(0, 460), Color.Black);
                 spriteBatch.DrawString(font, "Time Remind: " + time, new Vector2(300, 460), Color.Black);
-                spriteBatch.DrawString(font, "Miss: " + miss, new Vector2(700, 460), Color.Black);
+                // spriteBatch.DrawString(font, "Miss: " + miss, new Vector2(600, 460), Color.Black);
+                for (int i = 0; i <= miss; i++)
+                { 
+                    if (i > 0) 
+                    {
+                        spriteBatch.Draw(cross, new Rectangle(580 + (50*i),410 , 100,100), Color.White);
+                    }
+                }
             }
 
             spriteBatch.End();
 
             base.Draw(gameTime);
-        }
-
-        public void TimeCount()
-        {
-           
         }
     }
 }
