@@ -119,11 +119,15 @@ namespace Re0_MonoGame_Assignment
                     time = basicTime;
                     miss = 0;
                     apple = new Apple[1];
+                    strawberry = new Strawberry[1];
                     for (int i = 0; i < apple.Length; i++)
                     {
                         apple[i] = new Apple(this);
                         this.Components.Add(apple[i]);
+                        strawberry[i] = new Strawberry(this);
+                        this.Components.Add(strawberry[i]);
                         applemiss += apple[i].appleMiss;
+                        strawberrymiss += strawberry[i].strawberryMiss;
                     }
                     gamePlate = new plate(this);
                     this.Components.Add(gamePlate);
@@ -137,8 +141,12 @@ namespace Re0_MonoGame_Assignment
                 {
                     if (perfectCollision(apple[i].appleRect, apple[i].data, gamePlate.plateRect, gamePlate.data))
                     {
-                        Console.WriteLine("Hit");
+                        Console.WriteLine("Hit Apple");
                         apple[i].isHit = true;
+                    }else if(perfectCollision(strawberry[i].strawberryRect, apple[i].data, gamePlate.plateRect, gamePlate.data))
+                    {
+                        Console.WriteLine("Hit Strawberry");
+                        strawberry[i].isHit = true;
                     }
                     else
                     {
@@ -150,16 +158,26 @@ namespace Re0_MonoGame_Assignment
                     stage++;
                     miss = 0;
                     apple = new Apple[1];
+                    strawberry = new Strawberry[1];
                     for (int i = 0; i < apple.Length; i++)
                     {
                         apple[i] = new Apple(this);
                         this.Components.Add(apple[i]);
+                        strawberry[i] = new Strawberry(this);
+                        this.Components.Add(strawberry[i]);
                     }
                     time = basicTime + (basicTime * (stage - 1));
                 }
                 for(int i = 0; i < apple.Length; i++)
                 {
                     if (this.apple[i].applePosition.Y >= 270)
+                    {
+                        miss++;
+                    }
+                }
+                for(int i = 0; i < strawberry.Length; i++)
+                {
+                    if (this.strawberry[i].strawberryPosition.Y >= 450)
                     {
                         miss++;
                     }

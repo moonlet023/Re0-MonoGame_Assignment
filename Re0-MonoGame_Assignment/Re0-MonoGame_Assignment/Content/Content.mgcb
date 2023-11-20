@@ -68,7 +68,7 @@
 /processorParam:TextureFormat=Color
 /build:image/fruit/pineapple.png
 
-#begin image/fruit/strawberry.jpg
+#begin image/fruit/strawberry1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -78,7 +78,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:image/fruit/strawberry.jpg
+/build:image/fruit/strawberry1.png
 
 #begin image/fruit/watermelon.png
 /importer:TextureImporter
