@@ -124,9 +124,10 @@ namespace Re0_MonoGame_Assignment
                     {
                         apple[i] = new Apple(this);
                         this.Components.Add(apple[i]);
+                        applemiss += apple[i].appleMiss;
+                        
                         strawberry[i] = new Strawberry(this);
                         this.Components.Add(strawberry[i]);
-                        applemiss += apple[i].appleMiss;
                         strawberrymiss += strawberry[i].strawberryMiss;
                     }
                     gamePlate = new plate(this);
@@ -143,7 +144,9 @@ namespace Re0_MonoGame_Assignment
                     {
                         Console.WriteLine("Hit Apple");
                         apple[i].isHit = true;
-                    }else if(perfectCollision(strawberry[i].strawberryRect, apple[i].data, gamePlate.plateRect, gamePlate.data))
+                    }
+                    
+                    if(perfectCollision(strawberry[i].strawberryRect, strawberry[i].data, gamePlate.plateRect, gamePlate.data))
                     {
                         Console.WriteLine("Hit Strawberry");
                         strawberry[i].isHit = true;
