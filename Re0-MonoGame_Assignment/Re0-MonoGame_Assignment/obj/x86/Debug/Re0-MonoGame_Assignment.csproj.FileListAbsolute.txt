@@ -1,6 +1,3 @@
-C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\bnana.xnb
-C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\pineapple.xnb
-C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\watermelon.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\background\picnicmapYellow.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Re0-MonoGame_Assignment.exe
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Re0-MonoGame_Assignment.pdb
@@ -31,3 +28,6 @@ C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\gameEffecrt\cross.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\plate\plate1.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\strawberry1.xnb
+C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\banana.xnb
+C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\pineapple1.xnb
+C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\watermelon1.xnb

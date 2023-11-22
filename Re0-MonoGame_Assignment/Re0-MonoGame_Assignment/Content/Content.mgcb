@@ -44,7 +44,7 @@
 /processorParam:TextureFormat=Color
 /build:image/fruit/apple2.png
 
-#begin image/fruit/bnana.png
+#begin image/fruit/banana.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -54,9 +54,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:image/fruit/bnana.png
+/build:image/fruit/banana.png
 
-#begin image/fruit/pineapple.png
+#begin image/fruit/pineapple1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -66,7 +66,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:image/fruit/pineapple.png
+/build:image/fruit/pineapple1.png
 
 #begin image/fruit/strawberry1.png
 /importer:TextureImporter
@@ -80,7 +80,7 @@
 /processorParam:TextureFormat=Color
 /build:image/fruit/strawberry1.png
 
-#begin image/fruit/watermelon.png
+#begin image/fruit/watermelon1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -90,7 +90,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:image/fruit/watermelon.png
+/build:image/fruit/watermelon1.png
 
 #begin image/gameEffecrt/cross.png
 /importer:TextureImporter
