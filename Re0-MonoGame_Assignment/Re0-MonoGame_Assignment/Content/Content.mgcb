@@ -13,6 +13,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin audio/bg.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:audio/bg.mp3
+
+#begin audio/getItem.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/getItem.wav
+
 #begin font/Sprite.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

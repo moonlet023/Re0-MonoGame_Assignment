@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Re0_MonoGame_Assignment
 {
@@ -23,6 +26,9 @@ namespace Re0_MonoGame_Assignment
         plate plate;
         Texture2D cross;
         float leaveTime = 5.0f;
+        SoundEffect getHit;
+        Song bgMusic;
+        
 
         #region Background
 
@@ -96,6 +102,8 @@ namespace Re0_MonoGame_Assignment
             background = Content.Load<Texture2D>("image/background/picnicmapYellow");
             font = Content.Load<SpriteFont>("font/Sprite");
             cross = Content.Load<Texture2D>("image/gameEffecrt/cross");
+            getHit = Content.Load<SoundEffect>("audio/getItem");
+            bgMusic = Content.Load<Song>("audio/bg");
         }
 
         /// <summary>
@@ -126,6 +134,7 @@ namespace Re0_MonoGame_Assignment
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
                     isStart = true;
+                    MediaPlayer.Play(bgMusic);
                     time = basicTime;
                     miss = 0;
                     apple = new Apple[1];
@@ -160,6 +169,7 @@ namespace Re0_MonoGame_Assignment
                     {
                         //Console.WriteLine("Hit Apple");
                         apple[i].isHit = true;
+                        getHit.Play();
                     }
 
                     if (perfectCollision(strawberry[i].strawberryRect, strawberry[i].data, gamePlate.plateRect,
@@ -167,12 +177,14 @@ namespace Re0_MonoGame_Assignment
                     {
                         //Console.WriteLine("Hit Strawberry");
                         strawberry[i].isHit = true;
+                        getHit.Play();
                     }
 
                     if (perfectCollision(banana[i].bananaRect, banana[i].data, gamePlate.plateRect, gamePlate.data))
                     {
                         //Console.WriteLine("Hit Banana");
                         banana[i].isHit = true;
+                        getHit.Play();
                     }
 
                     if (pineapple != null)
@@ -181,6 +193,7 @@ namespace Re0_MonoGame_Assignment
                         {
                             //Console.WriteLine("Hit pineapple");
                             pineapple[i].isHit = true;
+                            getHit.Play();
                         }
 
                     if (watermelon != null)
@@ -189,6 +202,7 @@ namespace Re0_MonoGame_Assignment
                         {
                             Console.WriteLine("Hit watermelon");
                             watermelon[i].isHit = true;
+                            getHit.Play();
                         }
                         else
                         {

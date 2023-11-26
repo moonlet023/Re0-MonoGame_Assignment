@@ -31,3 +31,6 @@ C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\banana.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\pineapple1.xnb
 C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\image\fruit\watermelon1.xnb
+C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\audio\bg.wma
+C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\audio\bg.xnb
+C:\Users\月夜OUO\source\repos\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\Re0-MonoGame_Assignment\bin\Windows\x86\Debug\Content\audio\getItem.xnb

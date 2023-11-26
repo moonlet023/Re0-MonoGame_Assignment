@@ -4,6 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/audio/bg.mp3</File>
+    <File>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/audio/getItem.wav</File>
     <File>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/font/Sprite.spritefont</File>
     <File>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/image/background/picnicmapYellow.jpg</File>
     <File>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/image/fruit/apple2.png</File>
@@ -16,6 +18,8 @@
     <File>C:/Users/月夜OUO/source/repos/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Re0-MonoGame_Assignment/Content/image/plate/plate1.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
