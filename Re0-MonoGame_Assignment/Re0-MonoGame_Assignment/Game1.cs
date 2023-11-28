@@ -297,30 +297,31 @@ namespace Re0_MonoGame_Assignment
                 }
             }
 
-            if (stage == 4)
-            {
-                GameMessage = "You Win";
-                isEnd = true;
-                for (int i = 0; i < apple.Length; i++)
-                {
-                    this.Components.Remove(apple[i]);
-                    this.Components.Remove(strawberry[i]);
-                    this.Components.Remove(banana[i]);
-                    if (pineapple != null)
-                    {
-                        this.Components.Remove(pineapple[i]);
-                    }
+            // forever mode
+            // if (stage == 4)
+            // {
+            //     GameMessage = "You Win";
+            //     isEnd = true;
+            //     for (int i = 0; i < apple.Length; i++)
+            //     {
+            //         this.Components.Remove(apple[i]);
+            //         this.Components.Remove(strawberry[i]);
+            //         this.Components.Remove(banana[i]);
+            //         if (pineapple != null)
+            //         {
+            //             this.Components.Remove(pineapple[i]);
+            //         }
+            //
+            //         if (watermelon != null)
+            //         {
+            //             this.Components.Remove(watermelon[i]);
+            //         }
+            //     }
+            //
+            //     this.Components.Remove(gamePlate);
+            // }
 
-                    if (watermelon != null)
-                    {
-                        this.Components.Remove(watermelon[i]);
-                    }
-                }
-
-                this.Components.Remove(gamePlate);
-            }
-
-            if (miss >= 3)
+            if (miss >= 4)
             {
                 GameMessage = "You Lose";
                 isEnd = true;
@@ -343,17 +344,17 @@ namespace Re0_MonoGame_Assignment
                 this.Components.Remove(gamePlate);
             }
 
-            //not working need to fix later
-            if (isEnd)
-            {
-                defaultLeaveTime((int)time);
-                time -= (int)gameTime.ElapsedGameTime.TotalSeconds;
-                Console.WriteLine(time);
-                if (time <= 0)
-                {
-                    Exit();
-                }
-            }
+            //not working
+            // if (isEnd)
+            // {
+            //     defaultLeaveTime((int)time);
+            //     time -= (int)gameTime.ElapsedGameTime.TotalSeconds;
+            //     Console.WriteLine(time);
+            //     if (time <= 0)
+            //     {
+            //         Exit();
+            //     }
+            // }
 
             base.Update(gameTime);
         }
@@ -425,12 +426,12 @@ namespace Re0_MonoGame_Assignment
             if (!isStart || isEnd)
             {
                 spriteBatch.DrawString(font, GameMessage, new Vector2(300, 200), Color.Black);
-                if (isEnd)
-                {
-                    spriteBatch.DrawString(font, "Game Will Leave in " + time + " second", new Vector2(300, 250),
-                        Color.Black);
-                    // spriteBatch.DrawString(font, "Game Will Leave in " + leaveTime +" second", new Vector2(300, 250), Color.Black);
-                }
+                // if (isEnd)
+                // {
+                //     spriteBatch.DrawString(font, "Game Will Leave in " + time + " second", new Vector2(300, 250),
+                //         Color.Black);
+                //     spriteBatch.DrawString(font, "Game Will Leave in " + leaveTime +" second", new Vector2(300, 250), Color.Black);
+                // }
             }
             else
             {
